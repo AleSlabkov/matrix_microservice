@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  clearstar.microservice.auth:
+    image: ${DOCKER_REGISTRY}clearstarmicroserviceauth
+    build:
+      context: .
+      dockerfile: ClearStar.Microservice.Auth\Dockerfile
