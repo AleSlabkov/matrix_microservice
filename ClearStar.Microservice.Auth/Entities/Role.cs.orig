@@ -5,12 +5,15 @@ using System.Threading.Tasks;
 
 namespace ClearStar.Microservice.Auth.Entities
 {
-    public class Claim : IEntity
+    public class Role : IEntity
     {
-        public string Id { get; set; }
+<<<<<<< HEAD
         public string Name { get; set; }
-        public string Value { get; set; }
+        public string Id { get; set; }
+=======
+        public Guid Id { get; set; }
+        public string Name { get; set; }
         public Guid ApplicationId { get; set; }
-        
+>>>>>>> e72123692283da9533367b1561b046054dde4c96
     }
 }

@@ -12,10 +12,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+<<<<<<< HEAD
     <PackageReference Include="RavenDB.Client" Version="4.1.1" />
+=======
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.2.4" />
+>>>>>>> e72123692283da9533367b1561b046054dde4c96
   </ItemGroup>
 
 </Project>
