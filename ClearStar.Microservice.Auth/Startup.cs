@@ -58,7 +58,7 @@ namespace ClearStar.Microservice.Auth
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "CS Microservice Auth");
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
