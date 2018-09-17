@@ -1,4 +1,5 @@
 ﻿using ClearStar.Microservice.Auth.Data;
+using ClearStar.Microservice.Auth.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace ClearStar.Microservice.Auth.Services
     {
         Task<LoginResult> Login(string username, string password);
         Task CreateUser(UserInfo user);
+        string GetToken(User user);
        
 
     }
