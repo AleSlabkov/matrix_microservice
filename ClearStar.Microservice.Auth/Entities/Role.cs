@@ -7,7 +7,8 @@ namespace ClearStar.Microservice.Auth.Entities
 {
     public class Role : IEntity
     {
-        public string Name { get; set; }
         public string Id { get; set; }
+        public string Name { get; set; }
+        public Guid ApplicationId { get; set; }
     }
 }
