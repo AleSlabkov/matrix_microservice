@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Windows</DockerTargetOS>
-    <ProjectGuid>6b978113-1af4-40af-b892-5be0ff3a7a02</ProjectGuid>
+    <ProjectGuid>6a74e5fd-018b-4d8f-9bd3-16d632c839f8</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://{ServiceIPAddress}{ServicePort}/api/values</DockerServiceUrl>
     <DockerServiceName>clearstar.microservice.auth</DockerServiceName>

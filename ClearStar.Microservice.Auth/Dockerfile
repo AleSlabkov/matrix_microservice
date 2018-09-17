@@ -1,16 +1,20 @@
-FROM microsoft/dotnet:sdk AS build-env
+FROM microsoft/dotnet:2.1-aspnetcore-runtime-nanoserver-sac2016 AS base
 WORKDIR /app
+EXPOSE 80
 
-# Copy csproj and restore as distinct layers
-COPY *.csproj ./
-RUN dotnet restore
+FROM microsoft/dotnet:2.1-sdk-nanoserver-sac2016 AS build
+WORKDIR /src
+COPY *.csproj ClearStar.Microservice.Auth/
+RUN dotnet restore ClearStar.Microservice.Auth/ClearStar.Microservice.Auth.csproj
+WORKDIR /src/ClearStar.Microservice.Auth
+COPY . .
+#WORKDIR /src/ClearStar.Microservice.Auth
+RUN dotnet build ClearStar.Microservice.Auth.csproj -c Release -o /app
 
-# Copy everything else and build
-COPY . ./
-RUN dotnet publish -c Release -o out
+FROM build AS publish
+RUN dotnet publish ClearStar.Microservice.Auth.csproj -c Release -o /app
 
-# Build runtime image
-FROM microsoft/dotnet:aspnetcore-runtime
+FROM base AS final
 WORKDIR /app
-COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "clearstar.microservice.auth.dll"]
+COPY --from=publish /app .
+ENTRYPOINT ["dotnet", "ClearStar.Microservice.Auth.dll"]
