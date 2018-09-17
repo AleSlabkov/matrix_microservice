@@ -7,6 +7,6 @@ namespace ClearStar.Microservice.Auth.Entities
 {
     interface IEntity
     {
-        Guid Id { get; set; }
+        string Id { get; set; }
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClearStar.Microservice.Auth.RavenConfiguration;
+using ClearStar.Microservice.Auth.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,7 +27,13 @@ namespace ClearStar.Microservice.Auth
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLogging();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            // Configure RavenDB options and store holder
+            services.Configure<RavenSettings>(Configuration.GetSection("Raven"));
+            services.AddSingleton<IDocumentStoreHolder, DocumentStoreHolder>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
