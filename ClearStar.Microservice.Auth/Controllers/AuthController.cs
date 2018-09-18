@@ -24,14 +24,14 @@ namespace ClearStar.Microservice.Auth.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login([FromBody] UserInfo user)
+        public async Task<IActionResult> Login([FromBody] UserLoginInfo userLoginInfo)
         {
             try
             {
-                if (user == null)
+                if (userLoginInfo == null)
                     return BadRequest();
 
-                var validateResults = await authService.Login(user.UserName, user.Password);
+                var validateResults = await authService.Login(userLoginInfo.UserName, userLoginInfo.Password);
 
                 if (validateResults.Result != Result.Ok)
                     return BadRequest(validateResults.Result);
