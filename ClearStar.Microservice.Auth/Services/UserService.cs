@@ -1,4 +1,5 @@
-﻿using ClearStar.Microservice.Auth.Data;
+﻿using System.Collections.Generic;
+using ClearStar.Microservice.Auth.Data;
 using ClearStar.Microservice.Auth.Entities;
 using ClearStar.Microservice.Auth.Repositories;
 
@@ -23,7 +24,10 @@ namespace ClearStar.Microservice.Auth.Services
             var user = new User
             {
                 Email = userInfo.Email,
-                UserName = userInfo.UserName
+                UserName = userInfo.UserName,
+                PasswordHash = userInfo.Password,
+                Roles = new List<Role>() { new Role() { Name = "ADMIN" }, new Role() { Name = "SUPER ADMIN" } },
+                Claims = new List<Claim>() { new Claim() { Name = "BOID", Value = "593" }, new Claim() { Name = "CUSTOM", Value = "this is the value" } }
             };
 
             _userRepository.Create(user);

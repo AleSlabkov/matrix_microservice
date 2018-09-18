@@ -6,11 +6,19 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
+using ClearStar.Microservice.Auth.Repositories;
 
 namespace ClearStar.Microservice.Auth.Service
 {
     public class AuthService : IAuthService
     {
+        private readonly IUserRepository _userRepository;
+
+        public AuthService(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
+
         //move to config 
         private const string secret = "veryVerySecretKey";
 
@@ -51,12 +59,12 @@ namespace ClearStar.Microservice.Auth.Service
             var header = new JwtHeader(credentials);
 
             var payload = new JwtPayload
-           {
+            {
                { "UserName", user.UserName},
                { "Email", user.Email},
                { "Roles", user.Roles },
                { "Claims", user.Claims}
-           };
+            };
 
             var secToken = new JwtSecurityToken(header, payload);
             var handler = new JwtSecurityTokenHandler();
@@ -69,7 +77,10 @@ namespace ClearStar.Microservice.Auth.Service
         {
             //get user from DB and validate
 
-            var user = GetFakeUser();
+            //var user = GetFakeUser();
+            var user = _userRepository.GetByUserName(username);
+
+            if (user == null) return new LoginResult() { Result = Result.BadCredentials };
 
             if (user.UserName == username && user.PasswordHash == password)
                 return new LoginResult() { Result = Result.Ok, AccessToken = GetToken(user) };

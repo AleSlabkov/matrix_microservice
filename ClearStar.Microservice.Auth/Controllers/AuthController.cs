@@ -4,6 +4,8 @@ using ClearStar.Microservice.Auth.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using ClearStar.Microservice.Auth.RavenConfiguration;
+using ClearStar.Microservice.Auth.Repositories;
 
 namespace ClearStar.Microservice.Auth.Controllers
 {
@@ -16,7 +18,9 @@ namespace ClearStar.Microservice.Auth.Controllers
 
         public AuthController()
         {
-            authService = new AuthService();
+            var ravenSettings = new RavenSettings { Url = "http://127.0.0.1:8080", Database = "MTX" };
+            var userRepository = new UserRepository(new DocumentStoreHolder(ravenSettings));
+            authService = new AuthService(userRepository);
         }
 
         [HttpPost]
