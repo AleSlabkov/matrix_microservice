@@ -29,11 +29,6 @@ namespace ClearStar.Microservice.Auth.Service
             return user;
         }
 
-        public Task CreateUser(UserInfo user)
-        {
-            throw new NotImplementedException();
-        }
-
         public string GetToken(User user)
         {
             return BuildToken(user);

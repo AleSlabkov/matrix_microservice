@@ -42,7 +42,5 @@ namespace ClearStar.Microservice.Auth.Controllers
             }
 
         }
-
-
     }
 }

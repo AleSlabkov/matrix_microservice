@@ -5,7 +5,12 @@ using ClearStar.Microservice.Auth.Repositories;
 
 namespace ClearStar.Microservice.Auth.Services
 {
-    public class UserService
+    public interface IUserService
+    {
+        void Create(UserInfo userInfo);
+    }
+
+    public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
 
