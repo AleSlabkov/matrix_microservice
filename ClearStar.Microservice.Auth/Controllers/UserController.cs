@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using ClearStar.Microservice.Auth.Data;
-using ClearStar.Microservice.Auth.Entities;
 using ClearStar.Microservice.Auth.RavenConfiguration;
 using ClearStar.Microservice.Auth.Repositories;
-using ClearStar.Microservice.Auth.Service;
 using ClearStar.Microservice.Auth.Services;
 using Microsoft.AspNetCore.Mvc;
 

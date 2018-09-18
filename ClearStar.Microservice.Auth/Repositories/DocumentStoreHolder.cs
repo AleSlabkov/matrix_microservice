@@ -1,6 +1,5 @@
 ﻿using ClearStar.Microservice.Auth.Indexes;
 using ClearStar.Microservice.Auth.RavenConfiguration;
-using Microsoft.Extensions.Options;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Indexes;
 

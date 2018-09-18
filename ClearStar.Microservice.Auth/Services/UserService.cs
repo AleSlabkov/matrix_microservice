@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using ClearStar.Microservice.Auth.Data;
+﻿using ClearStar.Microservice.Auth.Data;
 using ClearStar.Microservice.Auth.Entities;
 using ClearStar.Microservice.Auth.Repositories;
 
