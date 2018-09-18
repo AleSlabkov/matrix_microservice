@@ -31,7 +31,7 @@ namespace ClearStar.Microservice.Auth.Controllers
 
                 _userService.Create(userInfo);
 
-                return Ok("Create OK. Please login");
+                return Ok("Store OK. Please login");
             }
             catch (Exception ex)
             {

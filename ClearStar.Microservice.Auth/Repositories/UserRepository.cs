@@ -7,7 +7,7 @@ namespace ClearStar.Microservice.Auth.Repositories
 {
     public interface IUserRepository
     {
-        Task Create(User user);
+        Task Store(User user);
         User GetByUserName(string username);
     }
 
@@ -20,7 +20,7 @@ namespace ClearStar.Microservice.Auth.Repositories
             _store = storeHolder.Store;
         }
 
-        public async Task Create(User user)
+        public async Task Store(User user)
         {
             using (var session = _store.OpenAsyncSession())
             {

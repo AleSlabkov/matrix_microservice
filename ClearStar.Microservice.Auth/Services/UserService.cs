@@ -30,7 +30,7 @@ namespace ClearStar.Microservice.Auth.Services
                 Claims = new List<Claim>() { new Claim() { Name = "BOID", Value = "593" }, new Claim() { Name = "CUSTOM", Value = "this is the value" } }
             };
 
-            _userRepository.Create(user);
+            _userRepository.Store(user);
         }
     }
 }

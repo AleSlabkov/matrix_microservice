@@ -23,7 +23,7 @@ namespace ClearStar.Microservice.Auth.Repositories
 
             Store.Initialize();
 
-            // Create indexes
+            // Store indexes
             IndexCreation.CreateIndexes(typeof(Users_ByUsername).Assembly, Store);
         }
 

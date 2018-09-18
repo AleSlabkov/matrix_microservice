@@ -75,9 +75,6 @@ namespace ClearStar.Microservice.Auth.Service
 
         public async Task<LoginResult> Login(string username, string password)
         {
-            //get user from DB and validate
-
-            //var user = GetFakeUser();
             var user = _userRepository.GetByUserName(username);
 
             if (user == null) return new LoginResult() { Result = Result.BadCredentials };
@@ -86,7 +83,6 @@ namespace ClearStar.Microservice.Auth.Service
                 return new LoginResult() { Result = Result.Ok, AccessToken = GetToken(user) };
 
             return new LoginResult() { Result = Result.BadCredentials };
-
         }
 
 
