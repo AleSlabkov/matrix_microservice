@@ -30,10 +30,10 @@ namespace ClearStar.Microservice.Auth
             services.AddSingleton<IDocumentStoreHolder, DocumentStoreHolder>();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new Info { Title = "CS Microservice Auth", Version = "v1" });
-            //});
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "CS Microservice Auth", Version = "v1" });
+            });
 
         }
 
@@ -53,10 +53,10 @@ namespace ClearStar.Microservice.Auth
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.
-            //app.UseSwaggerUI(c =>
-            //{
-            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "CS Microservice Auth");
-            //});
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CS Microservice Auth");
+            });
 
             app.UseHttpsRedirection();
             app.UseMvc();
